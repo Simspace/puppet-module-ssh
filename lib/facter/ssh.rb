@@ -1,4 +1,5 @@
 Facter.add('ssh_version') do
+  config kernel: ['Linux']
   setcode do
     if Facter::Util::Resolution.which('ssh')
       Facter::Util::Resolution.exec('ssh -V 2>&1').match(/^[A-Za-z0-9._]+/)[0]
